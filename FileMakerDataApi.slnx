@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FileMakerDataApi.csproj" />
+  <Project Path="FileMakerDataApi.Tests/FileMakerDataApi.Tests.csproj" />
+</Solution>
