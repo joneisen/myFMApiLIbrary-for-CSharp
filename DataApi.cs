@@ -91,6 +91,17 @@ public sealed class DataApi : IDataApi, IAsyncDisposable
         }
     }
 
+    /// <summary>
+    /// Internal constructor for unit testing. Accepts a pre-configured <see cref="HttpClient"/>
+    /// so tests can inject a mock <see cref="HttpMessageHandler"/> without network calls.
+    /// </summary>
+    internal DataApi(string apiDatabase, HttpClient httpClient, DapiVersion dapiVersion = DapiVersion.V1)
+    {
+        _apiDatabase = PrepareUrlPart(apiDatabase);
+        _dapiVersion = dapiVersion;
+        _http        = httpClient;
+    }
+
     // -------------------------------------------------------------------------
     // Authentication
     // -------------------------------------------------------------------------
